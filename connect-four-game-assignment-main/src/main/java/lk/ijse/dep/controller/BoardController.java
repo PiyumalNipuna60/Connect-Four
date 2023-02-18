@@ -17,6 +17,7 @@ import javafx.util.Duration;
 import lk.ijse.dep.controller.bo.Board;
 import lk.ijse.dep.controller.bo.BoardUI;
 import lk.ijse.dep.controller.bo.impl.BoardImpl;
+import lk.ijse.dep.service.Player;
 
 public class BoardController implements BoardUI {
 
