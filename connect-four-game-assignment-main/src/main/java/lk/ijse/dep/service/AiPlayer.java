@@ -1,14 +1,11 @@
 package lk.ijse.dep.service;
 
-public class Player {
-    Board board;
+public class AiPlayer extends Player{
 
-    public Player() {
-    }
-
-    public Player(Board board) {
+    public AiPlayer(Board board) {
         this.board = board;
     }
 
+    @Override
     public void movePiece(int col){}
 }
