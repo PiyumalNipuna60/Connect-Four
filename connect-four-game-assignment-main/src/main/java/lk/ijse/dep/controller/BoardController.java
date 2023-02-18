@@ -14,10 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
-import lk.ijse.dep.controller.bo.Board;
-import lk.ijse.dep.controller.bo.BoardUI;
-import lk.ijse.dep.controller.bo.impl.BoardImpl;
-import lk.ijse.dep.service.Player;
+import lk.ijse.dep.service.*;
 
 public class BoardController implements BoardUI {
 
