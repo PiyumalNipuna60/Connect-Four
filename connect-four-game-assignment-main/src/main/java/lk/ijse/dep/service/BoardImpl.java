@@ -18,7 +18,16 @@ public class BoardImpl implements Board {
 
     @Override
     public int findNextAvailableSpot(int col) {
-
+        int filled = 0;
+        for (int i = 0; i < piece[i].length; i++) {
+            if (piece[col][i] != Piece.EMPTY) {
+                filled++;
+            }
+        }
+        if (filled >= 5) {
+            filled = -1;
+        }
+        return filled;
     }
 
     @Override
