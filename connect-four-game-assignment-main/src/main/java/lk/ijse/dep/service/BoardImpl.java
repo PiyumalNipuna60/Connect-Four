@@ -50,7 +50,15 @@ public class BoardImpl implements Board {
 
     @Override
     public boolean existLegalMoves() {
-        return false;
+        boolean move=false;
+        for (int i=0; i< piece.length; i++){
+            for (int j=0; j< piece[i].length; j++){
+                if(piece[i][j]==Piece.EMPTY){
+                    move=true;
+                }
+            }
+        }
+        return move;
     }
 
     @Override
