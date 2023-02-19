@@ -1,6 +1,6 @@
 package lk.ijse.dep.service;
 
-public class BoardImpl implements Board{
+public class BoardImpl implements Board {
     private Piece piece[][];
     private BoardUI boardUI;
 
@@ -18,12 +18,17 @@ public class BoardImpl implements Board{
 
     @Override
     public int findNextAvailableSpot(int col) {
-        return 0;
+
     }
 
     @Override
     public boolean isLegalMove(int col) {
-        return false;
+        boolean move = true;
+        int count = findNextAvailableSpot(col);
+        if (count == -1) {
+            move = false;
+        }
+        return move;
     }
 
     @Override
@@ -33,7 +38,6 @@ public class BoardImpl implements Board{
 
     @Override
     public void updateMove(int col, Piece move) {
-
     }
 
     @Override
