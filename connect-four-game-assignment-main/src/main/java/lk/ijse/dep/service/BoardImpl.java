@@ -57,7 +57,62 @@ public class BoardImpl implements Board {
 
     @Override
     public Winner findWinner() {
+        Piece winningPiece = Piece.EMPTY;
 
+        int col1 = 0;
+        int col2 = 0;
+        int row1 = 0;
+        int row2 = 0;
+
+        for (int i = 0; i < piece.length; i++) {
+            if (findNextAvailableSpot(i) == 4 || findNextAvailableSpot(i) == -1) {
+                if (piece[i][0] == piece[i][1] && piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3]) {
+                    winningPiece = piece[i][0];
+                    col1 = i;
+                    col2 = i;
+                    row1 = 0;
+                    row2 = 3;
+                } else if (piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3] && piece[i][3] == piece[i][4]) {
+                    winningPiece = piece[i][1];
+                    col1 = i;
+                    col2 = i;
+                    row1 = 1;
+                    row2 = 4;
+                }
+            }
+        }
+
+        for (int i = 0; i < piece[i].length; i++) {
+            if (findAvailability(i) == 4 || findAvailability(i) == 5 || findAvailability(i) == -1) {
+                if (piece[i][0] == piece[i][1] && piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3]) {
+                    winningPiece = piece[0][i];
+                    col1 = 0;
+                    col2 = 3;
+                    row1 = i;
+                    row2 = i;
+                } else if (piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3] && piece[i][3] == piece[i][4]) {
+                    winningPiece = piece[1][i];
+                    col1 = 1;
+                    col2 = 4;
+                    row1 = i;
+                    row2 = i;
+                } else if (piece[i][2] == piece[i][3] && piece[i][3] == piece[i][4] && piece[i][4] == piece[i][5]) {
+                    winningPiece = piece[1][i];
+                    col1 = 2;
+                    col2 = 5;
+                    row1 = i;
+                    row2 = i;
+                }
+            }
+        }
+
+        Winner winner;
+        if (winningPiece == Piece.EMPTY) {
+            winner = new Winner(winningPiece);
+        } else {
+            winner = new Winner(winningPiece, col1, col2, row1, row2);
+        }
+        return winner;
     }
 
     private int findAvailability(int row) {
