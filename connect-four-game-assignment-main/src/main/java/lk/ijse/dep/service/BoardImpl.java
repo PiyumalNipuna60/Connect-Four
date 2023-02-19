@@ -47,7 +47,7 @@ public class BoardImpl implements Board {
 
     @Override
     public void updateMove(int col, Piece move) {
-        piece[col][findNextAvailableSpot(col)]=move;
+        piece[col][findNextAvailableSpot(col)] = move;
     }
 
     @Override
@@ -57,6 +57,21 @@ public class BoardImpl implements Board {
 
     @Override
     public Winner findWinner() {
-        return null;
+
     }
+
+    private int findAvailability(int row) {
+        int count = 6;
+        for (int i = 0; i < piece.length; i++) {
+            if (piece[i][row] == Piece.EMPTY) {
+                count--;
+            }
+        }
+        if (count == 6) {
+            count = -1;
+        }
+        return count;
+    }
+
+
 }
