@@ -3,9 +3,11 @@ package lk.ijse.dep.service;
 public class AiPlayer extends Player{
 
     public AiPlayer(Board board) {
-        this.board = board;
+        super(board);
     }
 
     @Override
-    public void movePiece(int col){}
+    public void movePiece(int col){
+
+    }
 }

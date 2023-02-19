@@ -1,6 +1,7 @@
 package lk.ijse.dep.service;
 
 public class BoardImpl implements Board {
+
     private Piece piece[][];
     private BoardUI boardUI;
 
@@ -68,7 +69,7 @@ public class BoardImpl implements Board {
 
     @Override
     public void updateMove(int col, int row, Piece move) {
-
+        piece[col][row]=move;
     }
 
     @Override
@@ -100,19 +101,19 @@ public class BoardImpl implements Board {
 
         for (int i = 0; i < piece[i].length; i++) {
             if (findAvailability(i) == 4 || findAvailability(i) == 5 || findAvailability(i) == -1) {
-                if (piece[i][0] == piece[i][1] && piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3]) {
+                if (piece[0][i] == piece[1][i] && piece[1][i] == piece[2][i] && piece[2][i] == piece[3][i]) {
                     winningPiece = piece[0][i];
                     col1 = 0;
                     col2 = 3;
                     row1 = i;
                     row2 = i;
-                } else if (piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3] && piece[i][3] == piece[i][4]) {
+                } else if (piece[1][i] == piece[2][i] && piece[2][i] == piece[3][i] && piece[3][i] == piece[4][i]) {
                     winningPiece = piece[1][i];
                     col1 = 1;
                     col2 = 4;
                     row1 = i;
                     row2 = i;
-                } else if (piece[i][2] == piece[i][3] && piece[i][3] == piece[i][4] && piece[i][4] == piece[i][5]) {
+                } else if (piece[2][i] == piece[3][i] && piece[3][i] == piece[4][i] && piece[4][i] == piece[5][i]) {
                     winningPiece = piece[1][i];
                     col1 = 2;
                     col2 = 5;
@@ -121,6 +122,8 @@ public class BoardImpl implements Board {
                 }
             }
         }
+
+
 
         Winner winner;
         if (winningPiece == Piece.EMPTY) {
