@@ -8,7 +8,15 @@ public class BoardImpl implements Board {
     }
 
     public BoardImpl(BoardUI boardUI) {
+
         this.boardUI = boardUI;
+        piece=new Piece[NUM_OF_COLS][NUM_OF_ROWS];
+
+        for (int i = 0; i < piece.length; i++) {
+            for (int j = 0; j < piece[i].length; j++) {
+                piece[i][j]=Piece.EMPTY;
+            }
+        }
     }
 
     @Override

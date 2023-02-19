@@ -12,6 +12,9 @@ public class HumanPlayer extends Player{
             board.updateMove(col,Piece.BLUE);
             board.getBoardUI().update(col,true);
             Winner winner=board.findWinner();
+            if (board.findWinner().getWinningPiece()==Piece.BLUE){
+                board.getBoardUI().notifyWinner(winner);
+            }
         }
     }
 }
