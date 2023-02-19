@@ -13,7 +13,7 @@ public class BoardImpl implements Board {
 
     @Override
     public BoardUI getBoardUI() {
-        return null;
+        return boardUI;
     }
 
     @Override
