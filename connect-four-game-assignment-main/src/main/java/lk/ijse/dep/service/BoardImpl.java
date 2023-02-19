@@ -47,6 +47,7 @@ public class BoardImpl implements Board {
 
     @Override
     public void updateMove(int col, Piece move) {
+        piece[col][findNextAvailableSpot(col)]=move;
     }
 
     @Override
