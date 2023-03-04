@@ -4,10 +4,10 @@ Please read the assignment carefully before proceeding. You can find the assignm
 In case if you have any doubts regarding the assignment please make sure to clarify them upfront.
 
 
-<img src="src/main/resources/asset/img/01.png" alt="drawing" width="100%" height="75%">
-<img src="src/main/resources/asset/img/02-Ai-won.png" alt="drawing" width="100%" height="75%">
-<img src="src/main/resources/asset/img/03-game-tied.png" alt="drawing" width="100%" height="75%">
-<img src="src/main/resources/asset/img/04-You-won.png" alt="drawing" width="100%" height="75%">
+<img src="src/main/resources/asset/img/01.png" alt="drawing" width="90%" height="75%" align="center">
+<img src="src/main/resources/asset/img/02-Ai-won.png" alt="drawing" width="90%" height="75%" align="center">
+<img src="src/main/resources/asset/img/03-game-tied.png" alt="drawing" width="90%" height="75%" align="center">
+<img src="src/main/resources/asset/img/04-You-won.png" alt="drawing" width="90%" height="75%" align="center">
 
 ### How to use this repo
 * Open the `pom.xml` via IntelliJ IDEA
