@@ -2,34 +2,31 @@ package lk.ijse.dep.service;
 
 public class BoardImpl implements Board {
 
-    private Piece piece[][];
+    private Piece[][] pieces;
     private BoardUI boardUI;
 
-    public BoardImpl() {
-    }
-
     public BoardImpl(BoardUI boardUI) {
-
         this.boardUI = boardUI;
-        piece=new Piece[NUM_OF_COLS][NUM_OF_ROWS];
+        pieces = new Piece[NUM_OF_COLS][NUM_OF_ROWS];
 
-        for (int i = 0; i < piece.length; i++) {
-            for (int j = 0; j < piece[i].length; j++) {
-                piece[i][j]=Piece.EMPTY;
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[i].length; j++) {
+                pieces[i][j] = Piece.EMPTY;
             }
         }
     }
 
     @Override
     public BoardUI getBoardUI() {
+
         return boardUI;
     }
 
     @Override
     public int findNextAvailableSpot(int col) {
         int filled = 0;
-        for (int i = 0; i < piece[i].length; i++) {
-            if (piece[col][i] != Piece.EMPTY) {
+        for (int i = 0; i < pieces[i].length; i++) {
+            if (pieces[col][i] != Piece.EMPTY) {
                 filled++;
             }
         }
@@ -42,34 +39,38 @@ public class BoardImpl implements Board {
     @Override
     public boolean isLegalMove(int col) {
         boolean move = true;
+
         int count = findNextAvailableSpot(col);
-        if (count == -1) {
-            move = false;
-        }
+
+        if (count == -1) move = false;
         return move;
     }
 
     @Override
     public boolean existLegalMoves() {
-        boolean move=false;
-        for (int i=0; i< piece.length; i++){
-            for (int j=0; j< piece[i].length; j++){
-                if(piece[i][j]==Piece.EMPTY){
-                    move=true;
+        boolean move = false;
+
+        for (int i = 0; i < pieces.length; i++) {
+            for (int j = 0; j < pieces[i].length; j++) {
+                if (pieces[i][j] == Piece.EMPTY) {
+                    move = true;
                 }
             }
         }
+
         return move;
     }
 
     @Override
     public void updateMove(int col, Piece move) {
-        piece[col][findNextAvailableSpot(col)] = move;
+
+        pieces[col][findNextAvailableSpot(col)] = move;
     }
 
     @Override
     public void updateMove(int col, int row, Piece move) {
-        piece[col][row]=move;
+
+        pieces[col][row] = move;
     }
 
     @Override
@@ -81,40 +82,42 @@ public class BoardImpl implements Board {
         int row1 = 0;
         int row2 = 0;
 
-        for (int i = 0; i < piece.length; i++) {
+        for (int i = 0; i < pieces.length; i++) {
             if (findNextAvailableSpot(i) == 4 || findNextAvailableSpot(i) == -1) {
-                if (piece[i][0] == piece[i][1] && piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3]) {
-                    winningPiece = piece[i][0];
+                if (pieces[i][0] == pieces[i][1] && pieces[i][1] == pieces[i][2] && pieces[i][2] == pieces[i][3]) {
+                    winningPiece = pieces[i][0];
                     col1 = i;
                     col2 = i;
                     row1 = 0;
                     row2 = 3;
-                } else if (piece[i][1] == piece[i][2] && piece[i][2] == piece[i][3] && piece[i][3] == piece[i][4]) {
-                    winningPiece = piece[i][1];
+
+                } else if (pieces[i][1] == pieces[i][2] && pieces[i][2] == pieces[i][3] && pieces[i][3] == pieces[i][4]) {
+                    winningPiece = pieces[i][1];
                     col1 = i;
                     col2 = i;
                     row1 = 1;
                     row2 = 4;
+
                 }
             }
         }
 
-        for (int i = 0; i < piece[i].length; i++) {
+        for (int i = 0; i < pieces[i].length; i++) {
             if (findAvailability(i) == 4 || findAvailability(i) == 5 || findAvailability(i) == -1) {
-                if (piece[0][i] == piece[1][i] && piece[1][i] == piece[2][i] && piece[2][i] == piece[3][i]) {
-                    winningPiece = piece[0][i];
+                if (pieces[0][i] == pieces[1][i] && pieces[1][i] == pieces[2][i] && pieces[2][i] == pieces[3][i]) {
+                    winningPiece = pieces[0][i];
                     col1 = 0;
                     col2 = 3;
                     row1 = i;
                     row2 = i;
-                } else if (piece[1][i] == piece[2][i] && piece[2][i] == piece[3][i] && piece[3][i] == piece[4][i]) {
-                    winningPiece = piece[1][i];
+                } else if (pieces[1][i] == pieces[2][i] && pieces[2][i] == pieces[3][i] && pieces[3][i] == pieces[4][i]) {
+                    winningPiece = pieces[1][i];
                     col1 = 1;
                     col2 = 4;
                     row1 = i;
                     row2 = i;
-                } else if (piece[2][i] == piece[3][i] && piece[3][i] == piece[4][i] && piece[4][i] == piece[5][i]) {
-                    winningPiece = piece[1][i];
+                } else if (pieces[2][i] == pieces[3][i] && pieces[3][i] == pieces[4][i] && pieces[4][i] == pieces[5][i]) {
+                    winningPiece = pieces[2][i];
                     col1 = 2;
                     col2 = 5;
                     row1 = i;
@@ -122,8 +125,6 @@ public class BoardImpl implements Board {
                 }
             }
         }
-
-
 
         Winner winner;
         if (winningPiece == Piece.EMPTY) {
@@ -136,8 +137,8 @@ public class BoardImpl implements Board {
 
     private int findAvailability(int row) {
         int count = 6;
-        for (int i = 0; i < piece.length; i++) {
-            if (piece[i][row] == Piece.EMPTY) {
+        for (int i = 0; i < pieces.length; i++) {
+            if (pieces[i][row] == Piece.EMPTY) {
                 count--;
             }
         }
@@ -146,6 +147,4 @@ public class BoardImpl implements Board {
         }
         return count;
     }
-
-
 }

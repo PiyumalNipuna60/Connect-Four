@@ -49,7 +49,6 @@ public class BoardController implements BoardUI {
     }
 
     public void initData(String playerName) {
-        System.out.println(playerName);
         this.playerName = playerName;
     }
 
