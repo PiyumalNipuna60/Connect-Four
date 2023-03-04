@@ -3,8 +3,13 @@ In this assignment, you will implement the complete logic behind the "Connect 4 
 Please read the assignment carefully before proceeding. You can find the assignment [here](https://drive.google.com/file/d/1qlqLBfI3Xu0p_BXRNbRneMWtyLlakXGp/view?usp=sharing).
 In case if you have any doubts regarding the assignment please make sure to clarify them upfront.
 
+
+<img src="src/main/resources/asset/img/01.png" alt="drawing" width="100%" height="75%">
+<img src="src/main/resources/asset/img/02-Ai-won.png" alt="drawing" width="100%" height="75%">
+<img src="src/main/resources/asset/img/03-game-tied.png" alt="drawing" width="100%" height="75%">
+<img src="src/main/resources/asset/img/04-You-won.png" alt="drawing" width="100%" height="75%">
+
 ### How to use this repo
-* `git clone https://github.com/Ranjith-Suranga/connect-four-game-assignment.git`
 * Open the `pom.xml` via IntelliJ IDEA
 * Make sure to the open it as a project, if prompt
 * Reload the `pom.xml` file via **Maven Tool Window**
